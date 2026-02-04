@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Support Our Petition</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f4f6f8;
+  color: #333;
+}
+
+/* HERO */
+.hero {
+  background: url("srisailamtemples.png") center/cover no-repeat;
+  min-height: 100vh;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+  color: #fff;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+}
+
+.hero h3 {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+/* CONTENT WRAP */
+.content-wrap {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+/* GALLERY / SLIDER */
+.gallery {
+  flex: 3;
+  position: relative;
+}
+
+.slider {
+  overflow: hidden;
+}
+
+.slide {
+  width: 100%;
+  display: none;
+  border-radius: 12px;
+}
+
+.slide.active {
+  display: block;
+  animation: fade 0.8s ease-in-out;
+}
+
+@keyframes fade {
+  from { opacity: 0.4; }
+  to { opacity: 1; }
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.6);
+  width: 60px;
+  color: #fff;
+  border: none;
+  font-size: 26px;
+  padding: 8px 14px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.nav.prev { left: 10px; }
+.nav.next { right: 10px; }
+
+.nav:hover {
+  background: rgba(0,0,0,0.9);
+}
+
+/* FORM SECTION */
+.section {
+  flex: 2;
+  background: #fff;
+  color: #111;
+  padding: 30px 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border: 2px solid #eca644;
+}
+
+.section h2 {
+  margin-top: 0;
+}
+
+/* FORM */
+form {
+  margin-top: 20px;
+}
+
+input[type="tel"] {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+label {
+  font-size: 14px;
+  display: block;
+  margin-bottom: 15px;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  background: #ffb703;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #f4a800;
+}
+
+#message {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #222;
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+  .hero-content {
+    padding: 20px;
+	padding-bottom: 80px;
+  }
+
+  .content-wrap {
+    flex-direction: column;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero h3 {
+    font-size: 1rem;
+  }
+
+  .nav {
+    font-size: 22px;
+    padding: 6px 10px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+  <div class="hero-content">
+
+    <div style="text-align:center">
+	<img src="srisailam-temple.png" style="width: 100px;">
+      <h1 style="margin-top: 0px;">హిందూ ఆలయాల పవిత్రతను కాపాడుదాం</h1>
+      <h3>ఆన్లైన్ పిటిషన్ ను సంతకం చేద్దాము.</h3>
+    </div>
+
+    <div class="content-wrap">
+	  <div class="gallery slider">
+        <img src="img2.jpg" class="slide active">
+        <img src="img1.jpg" class="slide">
+
+        <button class="nav prev">&#10094;</button>
+        <button class="nav next">&#10095;</button>
+      </div>
+
+      <div class="section">
+        <h2>అంశం:</h2>
+        <h4 style="line-height: 34px;">
+          పవిత్రమైన శ్రీశైల క్షేత్రంలో పాతాళ గంగలో అక్రమంగా నిర్మించిన దర్గాను వెంటనే తొలగించాలి.
+        </h4>
+
+        <h2>Sign the Petition</h2>
+
+        <form id="petitionForm">
+          <input type="tel" name="phone" placeholder="Enter your phone number" required>
+
+          <button type="submit">Sign Now</button>
+        </form>
+
+        <div id="message"></div>
+      </div>
+
+    </div>
+
+  </div>
+  <footer>
+  © 2026 Petition Campaign
+</footer>
+</div>
+
+<script>
+/* GOOGLE SHEETS SUBMISSION */
+const scriptURL = "https://script.google.com/macros/s/AKfycbwFZQim8Adydp6M6T7w37xaz9Ke6KcbxEDLdJdNR5EtnCE3igrpFLkZBcgyQCv2Nk4/exec";
+const form = document.getElementById("petitionForm");
+const message = document.getElementById("message");
+
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  message.textContent = "Submitting...";
+
+  fetch(scriptURL, {
+    method: "POST",
+    body: new FormData(form)
+  })
+  .then(() => {
+    message.textContent = "✅ Thank you for signing the petition!";
+    form.reset();
+  })
+  .catch(() => {
+    message.textContent = "❌ Something went wrong. Try again.";
+  });
+});
+</script>
+
+<script>
+/* SLIDER LOGIC */
+const slides = document.querySelectorAll(".slide");
+let currentIndex = 0;
+
+function showSlide(index) {
+  slides.forEach(slide => slide.classList.remove("active"));
+  slides[index].classList.add("active");
+}
+
+document.querySelector(".next").addEventListener("click", () => {
+  currentIndex = (currentIndex + 1) % slides.length;
+  showSlide(currentIndex);
+});
+
+document.querySelector(".prev").addEventListener("click", () => {
+  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+  showSlide(currentIndex);
+});
+
+setInterval(() => {
+  currentIndex = (currentIndex + 1) % slides.length;
+  showSlide(currentIndex);
+}, 4000);
+</script>
+
+</body>
+</html>
